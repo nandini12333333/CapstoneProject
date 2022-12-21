@@ -1,0 +1,16 @@
+#myDIV {
+  width: 1220px;
+  height: 130px;
+  border: 20px solid rgb(148, 71, 97);
+  animation: mymove 5s infinite;
+}
+@keyframes mymove {
+  30% {border-color: #df1a4b;}
+}
+h6{
+  font-style:italic ;
+}
+.header{
+  color: black;
+}
+

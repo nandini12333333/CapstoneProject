@@ -1,0 +1,83 @@
+<app-header></app-header>
+
+<div class="container-fluid" style="background-color:cornsilk; height: 100vh">
+  <form [formGroup]="loginForm" class="mt-2">
+    <div class="form-group loginType">
+    <label>Select Login Type</label>
+  <select formControlName="type" class="form-control">
+    <option value="Admin">Admin</option>
+    <option value="Customer">Customer</option>
+  </select>
+</div>
+  </form>
+  <div class="row">
+    <div class="col-sm-4 offset-1" *ngIf="loginForm.controls['type'].value=='Admin'">
+      <div class="card shadow" style="margin-top: 80px">
+        <div class="card-header bg-white">
+          <h4>Admin Login</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="fg" (submit)="validateadmin(fg.value)" novalidate>
+            <div class="form-group">
+              <input type="text" formControlName="userid" required name="userid" placeholder="User Id"
+                class="form-control" />
+              <small class="form-text text-danger" *ngIf="submitted && !fg.controls['userid'].valid">User id must be
+                given</small>
+            </div>
+            <div class="form-group">
+              <input type="password" formControlName="pwd" required name="password" placeholder="Password"
+                class="form-control" />
+              <small class="form-text text-danger" *ngIf="submitted && !fg.controls['pwd'].valid">Password must be
+                given</small>
+            </div>
+            <input type="submit" value="Sign In" class="btn btn-primary btn-block" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 offset-1" *ngIf="loginForm.controls['type'].value=='Customer'">
+      <div class="card shadow" style="margin-top: 80px">
+        <div class="card-header bg-white">
+          <h4>Customer Login</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="fg" (submit)="validate(fg.value)" novalidate>
+            <div class="form-group">
+              <input type="text" formControlName="userid" required name="userid" placeholder="User Id"
+                class="form-control" />
+              <small class="form-text text-danger" *ngIf="submitted && !fg.controls['userid'].valid">User id must be
+                given</small>
+            </div>
+            <div class="form-group">
+              <input type="password" formControlName="pwd" required name="password" placeholder="Password"
+                class="form-control" />
+              <small class="form-text text-danger" *ngIf="submitted && !fg.controls['pwd'].valid">Password must be
+                given</small>
+            </div>
+            <input type="submit" value="Sign In" class="btn btn-primary btn-block" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-4 offset-1">
+
+ 
+
+ <!--<div class="card shadow" style="margin-top: 80px">
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="form-group">
+
+          <img class="d-block w-100" src="../../assets/.jpg"  height="250px" alt="First slide">
+
+        </div>
+
+        </div>
+
+    </div>-->
+
